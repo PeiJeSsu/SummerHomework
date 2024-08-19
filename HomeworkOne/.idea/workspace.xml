@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20f5552a-61a7-43b7-ad7a-83f3ef94b15d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeworkOne.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/HomeworkOne.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/.empty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomeworkOne.drawio_BeforeRefin.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723908176722</updated>
       <workItem from="1723908177762" duration="799000" />
-      <workItem from="1724077179664" duration="3646000" />
+      <workItem from="1724077179664" duration="3824000" />
     </task>
     <servers />
   </component>
