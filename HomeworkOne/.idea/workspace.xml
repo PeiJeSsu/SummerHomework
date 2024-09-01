@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20f5552a-61a7-43b7-ad7a-83f3ef94b15d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/LocationMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Sight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/.empty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/.empty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/.empty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/LocationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/LocationMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +45,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.FirstJsoupExample.executor": "Run",
     "Application.LocationMapper.executor": "Run",
+    "Application.MainController.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -52,24 +59,17 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.LocationMapper">
-    <configuration name="FirstJsoupExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="FirstJsoupExample" />
-      <module name="HomeworkOne" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LocationMapper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="service.LocationMapper" />
+  <component name="RunManager">
+    <configuration name="MainController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controller.MainController" />
       <module name="HomeworkOne" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="service.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -79,8 +79,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LocationMapper" />
-        <item itemvalue="Application.FirstJsoupExample" />
+        <item itemvalue="Application.MainController" />
       </list>
     </recent_temporary>
   </component>
@@ -101,7 +100,7 @@
       <updated>1723908176722</updated>
       <workItem from="1723908177762" duration="799000" />
       <workItem from="1724077179664" duration="3930000" />
-      <workItem from="1725197210851" duration="7590000" />
+      <workItem from="1725197210851" duration="13077000" />
     </task>
     <servers />
   </component>
@@ -110,5 +109,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
