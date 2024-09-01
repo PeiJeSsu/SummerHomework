@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20f5552a-61a7-43b7-ad7a-83f3ef94b15d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Sight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/HomeworkOneAfter.drawio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/problems.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/controller/MainControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/.empty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/.empty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/.empty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomeworkOne.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomeworkOne.drawio.png" beforeDir="false" afterPath="$PROJECT_DIR$/doc/HomeworkOne.drawio.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/LocationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/LocationMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +47,7 @@
     "Application.FirstJsoupExample.executor": "Run",
     "Application.LocationMapper.executor": "Run",
     "Application.MainController.executor": "Run",
+    "Application.MainControllerTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -63,9 +65,17 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\SummerHomework\HomeworkOne\doc" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="controller" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="MainController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="controller.MainController" />
+    <configuration name="MainControllerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controller.MainControllerTest" />
       <module name="HomeworkOne" />
       <extension name="coverage">
         <pattern>
@@ -79,7 +89,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainController" />
+        <item itemvalue="Application.MainControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -100,7 +110,7 @@
       <updated>1723908176722</updated>
       <workItem from="1723908177762" duration="799000" />
       <workItem from="1724077179664" duration="3930000" />
-      <workItem from="1725197210851" duration="13077000" />
+      <workItem from="1725197210851" duration="15360000" />
     </task>
     <servers />
   </component>

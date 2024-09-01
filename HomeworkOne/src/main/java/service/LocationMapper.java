@@ -27,23 +27,23 @@ public class LocationMapper {
 
             Element guidePointDiv = document.getElementById(GUIDE_POINT_ID);
             if (guidePointDiv == null) {
-                logWarning("No <div> element found with id: " + GUIDE_POINT_ID);
+                LOGGER.warning("No <div> element found with id: " + GUIDE_POINT_ID);
                 return sights;
             }
 
             Element headerElement = findHeaderElement(guidePointDiv, linkText);
             if (headerElement == null) {
-                logWarning("No <h4> element found with the specified text: " + linkText);
+                LOGGER.warning("No <h4> element found with the specified text: " + linkText);
                 return sights;
             }
 
             Element ulElement = headerElement.nextElementSibling();
             if (ulElement == null) {
-                logWarning("No <ul> element found after <h4> with the specified text.");
+                LOGGER.warning("No <ul> element found after <h4> with the specified text.");
                 return sights;
             }
 
-            sights.addAll(processLinks(ulElement));
+            sights.addAll(processLinks(ulElement, linkText));
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Error fetching the page", e);
         }
@@ -59,14 +59,14 @@ public class LocationMapper {
         return divElement.select("h4:contains(" + linkText + ")").first();
     }
 
-    private List<Sight> processLinks(Element ulElement) {
+    private List<Sight> processLinks(Element ulElement, String linkText) {
         List<Sight> sights = new ArrayList<>();
         Elements linkElements = ulElement.select("a");
 
         for (Element linkElement : linkElements) {
             String relativeUrl = linkElement.attr("href");
             String absoluteUrl = BASE_URL + relativeUrl;
-            Sight sight = fetchPageDetails(absoluteUrl);
+            Sight sight = fetchPageDetails(absoluteUrl, linkText);
             if (sight != null) {
                 sights.add(sight);
             }
@@ -75,13 +75,13 @@ public class LocationMapper {
         return sights;
     }
 
-    private Sight fetchPageDetails(String pageUrl) {
+    private Sight fetchPageDetails(String pageUrl, String linkText) {
         Sight sight = new Sight();
 
         try {
             Document document = fetchDocument(pageUrl);
             sight.setSightName(getMetaContent(document, "name"));
-            sight.setZone(getZoneFromPageUrl(pageUrl));
+            sight.setZone(linkText);
             sight.setCategory(getCategory(document));
             sight.setPhotoURL(getMetaContent(document, "image"));
             sight.setDescription(getMetaContent(document, "description"));
@@ -102,13 +102,5 @@ public class LocationMapper {
     private String getCategory(Document document) {
         Element strongElement = document.selectFirst("span.point_pc + span strong");
         return strongElement != null ? strongElement.text() : "";
-    }
-
-    private String getZoneFromPageUrl(String pageUrl) {
-        return "PlaceholderZone";
-    }
-
-    private void logWarning(String message) {
-        LOGGER.warning(message);
     }
 }

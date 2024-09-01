@@ -1,0 +1,7 @@
+1. architecture
+2. design
+3. package manage + environment setup
+4. code quality
+5. error handle
+6. test
+7. knowledge
