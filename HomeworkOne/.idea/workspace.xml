@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20f5552a-61a7-43b7-ad7a-83f3ef94b15d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../HomeworkTwo/doc/HomeworkTwoAfter.drawio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HomeworkTwo/doc/problems.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HomeworkTwo/src/test/java/sightapi/SightApiApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HomeworkTwo/src/test/java/org/example/homeworktwo/HomeworkTwoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +107,8 @@
       <workItem from="1725243981165" duration="447000" />
       <workItem from="1725289991036" duration="37000" />
       <workItem from="1725290122355" duration="718000" />
-      <workItem from="1725291358849" duration="361000" />
+      <workItem from="1725291358849" duration="668000" />
+      <workItem from="1725292054366" duration="10000" />
     </task>
     <servers />
   </component>
