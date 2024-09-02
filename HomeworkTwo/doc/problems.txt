@@ -1,0 +1,7 @@
+1. architecture
+2. design
+3. springboot syntax
+4. code quality
+5. error handle
+6. test
+7. knowledge
