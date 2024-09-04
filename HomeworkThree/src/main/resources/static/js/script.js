@@ -1,7 +1,6 @@
 const zones = ['中山', '信義', '仁愛', '中正', '安樂', '七堵', '暖暖'];
 
 $(document).ready(function () {
-    // 生成區域按鈕
     zones.forEach(function (zone) {
         const button = `
             <button class="btn btn-primary mx-2 my-2" onclick="loadSights('${zone}')">
@@ -17,7 +16,7 @@ function loadSights(zone) {
         type: 'GET',
         data: { zone: zone },
         success: function (data) {
-            $('#zoneCards').empty(); // 清空之前的卡片內容
+            $('#zoneCards').empty();
 
             if (data.length === 0) {
                 $('#zoneCards').append('<p>沒有找到景點。</p>');
