@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 @Service
 public class LocationMapper {
 
-    private static final int TIMEOUT = 30000;
+    private static final int TIMEOUT = 60000;
     private static final String BASE_URL = "https://www.travelking.com.tw";
     private static final String GUIDE_POINT_ID = "guide-point";
     private static final String TOUR_GUIDE_PATH = "/tourguide/taiwan/keelungcity/";
