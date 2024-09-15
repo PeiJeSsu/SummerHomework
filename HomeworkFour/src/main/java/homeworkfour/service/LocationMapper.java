@@ -1,10 +1,12 @@
 package homeworkfour.service;
 
 import homeworkfour.model.Sight;
+import homeworkfour.repository.SightRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -22,47 +24,50 @@ public class LocationMapper {
     private static final String TOUR_GUIDE_PATH = "/tourguide/taiwan/keelungcity/";
     private static final Logger LOGGER = Logger.getLogger(LocationMapper.class.getName());
 
-    public List<Sight> fetchSightsByTitle(String linkText) {
-        List<Sight> sights = new ArrayList<>();
+    @Autowired
+    private SightRepository sightRepository; // 注入 SightRepository
 
+    public void fetchAndStoreAllAttractions() {
+        sightRepository.deleteAll();
+
+        String[] locations = {"七堵", "中山", "中正", "仁愛", "安樂", "信義", "暖暖"};
+
+        for (String location : locations) {
+            fetchSightsByTitle(location);
+        }
+    }
+
+    public void fetchSightsByTitle(String linkText) {
         try {
-            Document document = fetchDocument(BASE_URL + TOUR_GUIDE_PATH);
+            Document document = Jsoup.connect(BASE_URL + TOUR_GUIDE_PATH).timeout(TIMEOUT).get();
+
+
 
             Element guidePointDiv = document.getElementById(GUIDE_POINT_ID);
             if (guidePointDiv == null) {
                 LOGGER.warning("No <div> element found with id: " + GUIDE_POINT_ID);
-                return sights;
+                return;
             }
 
-            Element headerElement = findHeaderElement(guidePointDiv, linkText);
+            Element headerElement = guidePointDiv.select("h4:contains(" + linkText + ")").first();
             if (headerElement == null) {
                 LOGGER.warning("No <h4> element found with the specified text: " + linkText);
-                return sights;
+                return;
             }
 
             Element ulElement = headerElement.nextElementSibling();
             if (ulElement == null) {
                 LOGGER.warning("No <ul> element found after <h4> with the specified text.");
-                return sights;
+                return;
             }
 
-            sights.addAll(processLinks(ulElement, linkText));
+            processLinks(ulElement, linkText);
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Error fetching the page", e);
         }
-
-        return sights;
     }
 
-    private Document fetchDocument(String url) throws IOException {
-        return Jsoup.connect(url).timeout(TIMEOUT).get();
-    }
-
-    private Element findHeaderElement(Element divElement, String linkText) {
-        return divElement.select("h4:contains(" + linkText + ")").first();
-    }
-
-    private List<Sight> processLinks(Element ulElement, String linkText) {
+    private void processLinks(Element ulElement, String linkText) {
         List<Sight> sights = new ArrayList<>();
         Elements linkElements = ulElement.select("a");
 
@@ -75,14 +80,14 @@ public class LocationMapper {
             }
         }
 
-        return sights;
+        saveSights(sights);
     }
 
     private Sight fetchPageDetails(String pageUrl, String linkText) {
         Sight sight = new Sight();
 
         try {
-            Document document = fetchDocument(pageUrl);
+            Document document = Jsoup.connect(pageUrl).timeout(TIMEOUT).get();;
             sight.setSightName(getMetaContent(document, "name"));
             sight.setZone(linkText);
             sight.setCategory(getCategory(document));
@@ -106,4 +111,16 @@ public class LocationMapper {
         Element strongElement = document.selectFirst("span.point_pc + span strong");
         return strongElement != null ? strongElement.text() : "";
     }
+
+    private void saveSights(List<Sight> sights) {
+        for (Sight sight : sights) {
+            try {
+                sightRepository.save(sight);
+                LOGGER.info("Successfully saved sight: " + sight.getSightName());
+            } catch (Exception e) {
+                LOGGER.log(Level.SEVERE, "Error saving sight: " + sight.getSightName(), e);
+            }
+        }
+    }
 }
+

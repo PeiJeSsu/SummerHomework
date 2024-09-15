@@ -1,8 +1,12 @@
 package homeworkfour.model;
 
+import org.springframework.data.annotation.Id;
+
 import java.io.Serializable;
 
 public class Sight implements Serializable {
+    @Id
+    private String id;
     private String sightName;
     private String zone;
     private String category;
