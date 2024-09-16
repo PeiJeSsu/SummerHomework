@@ -1,5 +1,7 @@
 package sightapi.service;
 
+import sightapi.error.BadRequestException;
+import sightapi.error.NotFoundException;
 import sightapi.model.Sight;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -30,32 +32,26 @@ public class LocationMapper {
 
             Element guidePointDiv = document.getElementById(GUIDE_POINT_ID);
             if (guidePointDiv == null) {
-                LOGGER.warning("No <div> element found with id: " + GUIDE_POINT_ID);
-                return sights;
+                throw new NotFoundException("No <div> element found with id: " + GUIDE_POINT_ID);
             }
 
             Element headerElement = guidePointDiv.select("h4:contains(" + linkText + ")").first();
             if (headerElement == null) {
-                LOGGER.warning("No <h4> element found with the specified text: " + linkText);
-                return sights;
+                throw new NotFoundException("No <h4> element found with the specified text: " + linkText);
             }
 
             Element ulElement = headerElement.nextElementSibling();
             if (ulElement == null) {
-                LOGGER.warning("No <ul> element found after <h4> with the specified text.");
-                return sights;
+                throw new NotFoundException("No <ul> element found after <h4> with the specified text.");
             }
 
             sights.addAll(processLinks(ulElement, linkText));
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Error fetching the page", e);
+            throw new BadRequestException("Error fetching the page.");
         }
 
         return sights;
-    }
-
-    private Document fetchDocument(String url) throws IOException {
-        return Jsoup.connect(url).timeout(TIMEOUT).get();
     }
 
     private List<Sight> processLinks(Element ulElement, String linkText) {
