@@ -78,7 +78,13 @@ public class LocationMapper {
             sight.setSightName(getMetaContent(document, "name"));
             sight.setZone(linkText);
             sight.setCategory(getCategory(document));
-            sight.setPhotoURL(getMetaContent(document, "image"));
+
+            String photoURL = getMetaContent(document, "image");
+            if (photoURL == null || photoURL.isEmpty()) {
+                photoURL = "https://www.contentviewspro.com/wp-content/uploads/2017/07/default_image.png";
+            }
+            sight.setPhotoURL(photoURL);
+
             sight.setDescription(getMetaContent(document, "description"));
             sight.setAddress(getMetaContent(document, "address"));
         } catch (IOException e) {
