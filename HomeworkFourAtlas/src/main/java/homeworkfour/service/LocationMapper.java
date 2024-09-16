@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 @Service
 public class LocationMapper {
 
-    private static final int TIMEOUT = 120000;
+    private static final int TIMEOUT = 240000;
     private static final String BASE_URL = "https://www.travelking.com.tw";
     private static final String GUIDE_POINT_ID = "guide-point";
     private static final String TOUR_GUIDE_PATH = "/tourguide/taiwan/keelungcity/";
@@ -40,8 +40,6 @@ public class LocationMapper {
     public void fetchSightsByTitle(String linkText) {
         try {
             Document document = Jsoup.connect(BASE_URL + TOUR_GUIDE_PATH).timeout(TIMEOUT).get();
-
-
 
             Element guidePointDiv = document.getElementById(GUIDE_POINT_ID);
             if (guidePointDiv == null) {
@@ -79,6 +77,8 @@ public class LocationMapper {
                 sights.add(sight);
             }
         }
+
+
 
         saveSights(sights);
     }
