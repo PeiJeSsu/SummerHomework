@@ -26,7 +26,7 @@ public class LocationMapper {
         List<Sight> sights = new ArrayList<>();
 
         try {
-            Document document = fetchDocument(BASE_URL + TOUR_GUIDE_PATH);
+            Document document = Jsoup.connect(BASE_URL + TOUR_GUIDE_PATH).timeout(TIMEOUT).get();
 
             Element guidePointDiv = document.getElementById(GUIDE_POINT_ID);
             if (guidePointDiv == null) {
@@ -34,7 +34,7 @@ public class LocationMapper {
                 return sights;
             }
 
-            Element headerElement = findHeaderElement(guidePointDiv, linkText);
+            Element headerElement = guidePointDiv.select("h4:contains(" + linkText + ")").first();
             if (headerElement == null) {
                 LOGGER.warning("No <h4> element found with the specified text: " + linkText);
                 return sights;
@@ -58,10 +58,6 @@ public class LocationMapper {
         return Jsoup.connect(url).timeout(TIMEOUT).get();
     }
 
-    private Element findHeaderElement(Element divElement, String linkText) {
-        return divElement.select("h4:contains(" + linkText + ")").first();
-    }
-
     private List<Sight> processLinks(Element ulElement, String linkText) {
         List<Sight> sights = new ArrayList<>();
         Elements linkElements = ulElement.select("a");
@@ -82,7 +78,7 @@ public class LocationMapper {
         Sight sight = new Sight();
 
         try {
-            Document document = fetchDocument(pageUrl);
+            Document document = Jsoup.connect(pageUrl).timeout(TIMEOUT).get();
             sight.setSightName(getMetaContent(document, "name"));
             sight.setZone(linkText);
             sight.setCategory(getCategory(document));
